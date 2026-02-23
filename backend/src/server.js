@@ -6,12 +6,13 @@ const connectDB = require('./config/db');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// CORS: set FRONTEND_URL on Render to your Vercel app URL (e.g. https://your-app.vercel.app)
+// CORS: include deployed frontend URL (Vercel) and local dev URLs
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
   'http://localhost:8080',
   'http://127.0.0.1:8080',
+  'https://healthcare-project-ten.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 app.use(cors({
@@ -53,7 +54,7 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`API Base URL: http://localhost:${PORT}`);
-  console.log(`Test endpoint: http://localhost:${PORT}/api/specialists`);
+  console.log(`CORS allowed origins: ${allowedOrigins.join(', ')}`);
+  console.log(`Test endpoint (relative): /api/specialists`);
 });
 
