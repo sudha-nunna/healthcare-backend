@@ -1,5 +1,16 @@
-// Root entry point for Render (when Start Command is "node server.js")
-// Switches to backend dir so dotenv and relative paths resolve correctly
+// Root entry point for Render when Start Command is "node server.js"
+// Runs the real server in the backend folder so paths and .env resolve correctly.
+const { spawn } = require('child_process');
 const path = require('path');
-process.chdir(path.join(__dirname, 'backend'));
-require(path.join(__dirname, 'backend', 'src', 'server.js'));
+
+const backendDir = path.join(__dirname, 'backend');
+
+const child = spawn('node', ['src/server.js'], {
+  cwd: backendDir,
+  stdio: 'inherit',
+});
+
+child.on('close', (code) => {
+  process.exit(code ?? 0);
+});
+
