@@ -1,32 +1,5 @@
-# Dependencies
-node_modules/
-
-# Environment and secrets
+node_modules
 .env
-.env.local
-.env.*.local
-
-# Logs
 *.log
-npm-debug.log*
-
-# Uploads and user content
-backend/uploads/*
-!backend/uploads/.gitkeep
-
-# OS and IDE
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Build and cache
-dist/
-build/
-.cache/
-
-# Optional
-*.tgz
-.npm
+uploads/*
+!uploads/.gitkeep
