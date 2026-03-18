@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "cd backend && node server.js",
-    "heroku-postbuild": "cd backend && npm install"
+    "build": "cd backend && npm install --prefix backend",
+    "heroku-postbuild": "cd backend && npm install --prefix backend"
   },
   "engines": {
     "node": ">=18.0.0"
