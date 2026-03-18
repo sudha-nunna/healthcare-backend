@@ -2,7 +2,7 @@
   "name": "healthcare-backend",
   "private": true,
   "scripts": {
-    "start": "cd backend && node src/server.js",
+    "start": "cd backend && node server.js",
     "build": "cd backend && npm install"
   }
 }
