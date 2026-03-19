@@ -18,4 +18,3 @@ const DentistAppointmentSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model('DentistAppointment', DentistAppointmentSchema);
-

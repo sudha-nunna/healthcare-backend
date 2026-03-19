@@ -11,4 +11,3 @@ function adminKey(req, res, next) {
 }
 
 module.exports = adminKey;
-

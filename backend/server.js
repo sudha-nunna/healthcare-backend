@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./src/config/db');
+const connectDB = require('./config/db');
 
 const app = express();
 const BASE_PORT = Number(process.env.PORT) || 4001;
@@ -33,18 +33,18 @@ app.use('/uploads', express.static(process.env.UPLOAD_DIR || 'uploads'));
 connectDB();
 
 // routes
-app.use('/api/auth', require('./src/routes/auth'));
-app.use('/api/slots', require('./src/routes/slots'));
-app.use('/api/appointments', require('./src/routes/appointments'));
-app.use('/api/specialists', require('./src/routes/specialists'));
-app.use('/api/insurance', require('./src/routes/insurance'));
-app.use('/api/reviews', require('./src/routes/reviews'));
-app.use('/api/prices', require('./src/routes/prices'));
-app.use('/api/profile', require('./src/routes/profile'));
-app.use('/api/upload', require('./src/routes/upload'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/slots', require('./routes/slots'));
+app.use('/api/appointments', require('./routes/appointments'));
+app.use('/api/specialists', require('./routes/specialists'));
+app.use('/api/insurance', require('./routes/insurance'));
+app.use('/api/reviews', require('./routes/reviews'));
+app.use('/api/prices', require('./routes/prices'));
+app.use('/api/profile', require('./routes/profile'));
+app.use('/api/upload', require('./routes/upload'));
 // Dentist booking platform (added without changing existing routes)
-app.use('/api/dentists', require('./src/routes/dentists'));
-app.use('/api/dentist-appointments', require('./src/routes/dentist-appointments'));
+app.use('/api/dentists', require('./routes/dentists'));
+app.use('/api/dentist-appointments', require('./routes/dentist-appointments'));
 
 // Health check endpoint (report configured base port; actual listen port is logged at startup)
 app.get('/', (req, res) =>

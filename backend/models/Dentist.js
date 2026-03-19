@@ -14,4 +14,3 @@ const DentistSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model('Dentist', DentistSchema);
-

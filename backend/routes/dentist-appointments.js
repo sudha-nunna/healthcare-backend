@@ -119,4 +119,3 @@ router.put('/:id/status', adminKey, async (req, res, next) => {
 });
 
 module.exports = router;
-
